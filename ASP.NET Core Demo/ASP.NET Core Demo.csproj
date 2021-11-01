@@ -5,4 +5,9 @@
     <RootNamespace>ASP.NET_Core_Demo</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.90" />
+    <PackageReference Include="MySql.Data" Version="8.0.27" />
+  </ItemGroup>
+
 </Project>
