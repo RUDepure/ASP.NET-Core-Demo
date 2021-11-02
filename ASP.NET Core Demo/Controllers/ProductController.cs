@@ -9,6 +9,7 @@ namespace ASP.NET_Core_Demo.Controllers
 {
     public class ProductController : Controller
     {
+        //Intro Functionality
         private readonly IProductRepository repo;
 
         public ProductController(IProductRepository repo)
@@ -23,12 +24,14 @@ namespace ASP.NET_Core_Demo.Controllers
 
             return View(products);
         }
+        //View Functionality
         public IActionResult ViewProduct(int id)
         {
             var product = repo.GetProduct(id);
 
             return View(product);
         }
+        //Update Functionality
         public IActionResult UpdateProduct(int id)
         {
             Product prod = repo.GetProduct(id);
@@ -45,6 +48,19 @@ namespace ASP.NET_Core_Demo.Controllers
             repo.UpdateProduct(product);
 
             return RedirectToAction("ViewProduct", new { id = product.ProductID });
+        }
+        //Insert Functionality
+        public IActionResult InsertProduct()
+        {
+            var prod = repo.AssignCategory();
+
+            return View(prod);
+        }
+        public IActionResult InsertProductToDatabase(Product productToInsert)
+        {
+            repo.InsertProduct(productToInsert);
+
+            return RedirectToAction("Index");
         }
 
     }
