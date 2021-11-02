@@ -62,6 +62,12 @@ namespace ASP.NET_Core_Demo.Controllers
 
             return RedirectToAction("Index");
         }
+        //Delete Functionality
+        public IActionResult DeleteProduct(Product product)
+        {
+            repo.DeleteProduct(product);
 
+            return RedirectToAction("Index");
+        }
     }
 }

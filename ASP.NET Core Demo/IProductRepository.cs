@@ -18,5 +18,7 @@ namespace ASP.NET_Core_Demo
         public void InsertProduct(Product productToInsert);
         public IEnumerable<Category> GetCategories();
         public Product AssignCategory();
+        //Delete functionality
+        public void DeleteProduct(Product product);
     }
 }
