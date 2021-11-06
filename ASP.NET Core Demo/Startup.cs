@@ -27,7 +27,9 @@ namespace ASP.NET_Core_Demo
         {
             services.AddScoped<IDbConnection>((s) =>
             {
-                IDbConnection conn = new MySqlConnection(Configuration.GetConnectionString("bestbuy"));
+                //Connection version in local DB
+                //IDbConnection conn = new MySqlConnection(Configuration.GetConnectionString("bestbuy"));
+                IDbConnection conn = new MySqlConnection(Configuration.GetConnectionString("azure"));
                 conn.Open();
                 return conn;
             });
